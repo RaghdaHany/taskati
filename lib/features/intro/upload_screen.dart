@@ -6,6 +6,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:taskati/core/constants/app_images.dart';
 import 'package:taskati/core/functions/dialogs.dart';
 import 'package:taskati/core/functions/navigations.dart';
+import 'package:taskati/core/services/local_storage.dart';
 import 'package:taskati/core/utils/colors.dart';
 import 'package:taskati/core/widgets/main_button.dart';
 
@@ -27,7 +28,9 @@ class _UploadScreenState extends State<UploadScreen> {
           TextButton(
             onPressed: () {
               if (path != null && nameController.text.isNotEmpty) {
-              
+                LocalStorage.cacheData(LocalStorage.name, nameController.text);
+                LocalStorage.cacheData(LocalStorage.image, path!);
+                context.pushReplacementTo(const HomeScreen());
               } else if (path == null && nameController.text.isNotEmpty) {
                 showMainDialog(context, 'Please select an image');
               } else if (path != null && nameController.text.isEmpty) {
