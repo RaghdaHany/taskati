@@ -5,6 +5,7 @@ import 'package:taskati/core/constants/app_images.dart';
 import 'package:taskati/core/functions/navigations.dart';
 import 'package:taskati/core/services/local_storage.dart';
 import 'package:taskati/core/utils/text_styles.dart';
+import 'package:taskati/features/home/page/home_screen.dart';
 import 'package:taskati/features/intro/upload_screen.dart';
 
 class SplashScreen extends StatefulWidget {

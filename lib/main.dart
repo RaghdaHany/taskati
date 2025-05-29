@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
-// import 'package:hive_flutter/hive_flutter.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:taskati/core/constants/app_fonts.dart';
-// import 'package:taskati/core/services/local_storage.dart';
+import 'package:taskati/core/model/task_model.dart';
+import 'package:taskati/core/services/local_storage.dart';
 import 'package:taskati/core/utils/colors.dart';
 import 'package:taskati/core/utils/text_styles.dart';
 import 'package:taskati/features/intro/splash_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // await Hive.initFlutter();
-  // await Hive.openBox('user');
-  // LocalStorage.init();
+  await Hive.initFlutter();
+  await Hive.openBox('user');
+  
+  Hive.registerAdapter<TaskModel>(TaskModelAdapter());
+  await Hive.openBox<TaskModel>('tasks');
+
+  LocalStorage.init();
   runApp(const MainApp());
 }
 
