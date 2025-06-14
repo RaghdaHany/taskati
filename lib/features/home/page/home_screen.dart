@@ -25,12 +25,12 @@ String selectedDate = DateFormat("yyyy-MM-dd").format(DateTime.now());
           padding: const EdgeInsets.all(16),
           child: Column(
             children: [
-              const HomeHeader(),
-              const Gap(15),
-              const TodayHeader(),
-              const Gap(15),
+              HomeHeader(),
+              Gap(15),
+              TodayHeader(),
+              Gap(15),
               DatePicker(
-                height: 90,
+                height: 100,
                 width: 70,
                 DateTime.now(),
                 initialSelectedDate: DateTime.now(),

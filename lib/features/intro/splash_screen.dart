@@ -20,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     String? isFirstTime = LocalStorage.getData(LocalStorage.name);
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 3), () {
       if (isFirstTime != null) {
         context.pushReplacementTo(const HomeScreen());
       } else {
@@ -36,16 +36,16 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Lottie.asset(AppImages.logo, width: 250),
+           Lottie.asset(AppImages.logo,),
             Text(
               'Taskati',
-              style: TextStyles.getBodyTextStyle(
-                  fontSize: 22, fontWeight: FontWeight.w500),
+              style: TextStyles.getBodyTextStyle(context,
+                  fontSize: 22, fontWeight: FontWeight.bold),
             ),
-            const Gap(15),
+            Gap(8),
             Text(
               'It\'s time to get organized',
-              style: TextStyles.getSmallTextStyle(),
+              style: TextStyles.getSmallTextStyle(fontSize: 16),
             )
           ],
         ),

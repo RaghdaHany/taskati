@@ -96,7 +96,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text('Title',
-            style: TextStyles.getBodyTextStyle(fontWeight: FontWeight.w500)),
+            style: TextStyles.getBodyTextStyle(context,fontWeight: FontWeight.w500)),
         const Gap(5),
         TextFormField(
           controller: titleController,
@@ -119,7 +119,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text('Description',
-            style: TextStyles.getBodyTextStyle(fontWeight: FontWeight.w500)),
+            style: TextStyles.getBodyTextStyle(context,fontWeight: FontWeight.w500)),
         const Gap(5),
         TextFormField(
           controller: descriptionController,
@@ -143,7 +143,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text('Date',
-            style: TextStyles.getBodyTextStyle(fontWeight: FontWeight.w500)),
+            style: TextStyles.getBodyTextStyle(context,fontWeight: FontWeight.w500)),
         const Gap(5),
         TextFormField(
           readOnly: true,
@@ -176,7 +176,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text('Start Time',
-              style: TextStyles.getBodyTextStyle(fontWeight: FontWeight.w500)),
+              style: TextStyles.getBodyTextStyle(context,fontWeight: FontWeight.w500)),
           const Gap(5),
           TextFormField(
             readOnly: true,
@@ -205,7 +205,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text('End Time',
-              style: TextStyles.getBodyTextStyle(fontWeight: FontWeight.w500)),
+              style: TextStyles.getBodyTextStyle(context,fontWeight: FontWeight.w500)),
           const Gap(5),
           TextFormField(
             readOnly: true,
@@ -233,7 +233,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text('Color',
-            style: TextStyles.getBodyTextStyle(fontWeight: FontWeight.w500)),
+            style: TextStyles.getBodyTextStyle(context,fontWeight: FontWeight.w500)),
         const Gap(5),
         Row(
           children: List.generate(3, (index) {

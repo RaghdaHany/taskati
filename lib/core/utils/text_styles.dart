@@ -14,7 +14,7 @@ class TextStyles {
     );
   }
 
-  static TextStyle getBodyTextStyle({
+  static TextStyle getBodyTextStyle(BuildContext context, {
     double fontSize = 16,
     FontWeight fontWeight = FontWeight.normal,
     Color color = AppColors.blackColor,

@@ -38,7 +38,7 @@ class MainApp extends StatelessWidget {
                 fontFamily: AppFonts.poppins,
               )),
           inputDecorationTheme: InputDecorationTheme(
-            hintStyle: TextStyles.getBodyTextStyle(),
+            hintStyle: TextStyles.getBodyTextStyle(context,),
             enabledBorder: OutlineInputBorder(
                 borderSide: const BorderSide(color: AppColors.primaryColor),
                 borderRadius: BorderRadius.circular(10)),

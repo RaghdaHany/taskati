@@ -12,18 +12,23 @@ class TaskCard extends StatelessWidget {
 
   final TaskModel taskModel;
 
-  @override
+   @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(bottom: 6),
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
-          color: taskModel.color == 0
-                      ? AppColors.primaryColor
-                      : taskModel.color == 1
-                          ? AppColors.orangeColor
-                          : AppColors.redColor,
-          borderRadius: BorderRadius.circular(10)),
+        color:
+            taskModel.isCompleted == true
+                ? const Color.fromARGB(255, 20, 207, 3)
+                : taskModel.color == 0
+                ? AppColors.primaryColor
+                : taskModel.color == 1
+                ? AppColors.redColor
+                : AppColors.orangeColor,
+        borderRadius: BorderRadius.circular(10),
+      ),
+
       child: Row(
         children: [
           Expanded(
@@ -33,47 +38,50 @@ class TaskCard extends StatelessWidget {
                 Text(
                   taskModel.title ?? '',
                   style: TextStyles.getBodyTextStyle(
-                      fontWeight: FontWeight.w600, color: AppColors.whiteColor),
+                    context,
+                    color: AppColors.whiteColor,
+                  ),
                 ),
-                const Gap(5),
                 Row(
                   children: [
-                    const Icon(
+                    Icon(
                       Icons.watch_later_outlined,
-                      color: AppColors.whiteColor,
+                      color: Colors.white,
                       size: 18,
                     ),
-                    const Gap(5),
+                    Gap(10),
                     Text(
                       '${taskModel.startTime} - ${taskModel.endTime}',
                       style: TextStyles.getSmallTextStyle(
-                          color: AppColors.whiteColor),
-                    )
+                        color: AppColors.whiteColor,
+                      ),
+                    ),
                   ],
                 ),
-                const Gap(5),
+                Gap(5),
                 Text(
                   taskModel.describtion ?? '',
-                  style:
-                      TextStyles.getBodyTextStyle(color: AppColors.whiteColor),
+                  style: TextStyles.getBodyTextStyle(
+                    context,
+                    color: AppColors.whiteColor,
+                  ),
                 ),
               ],
             ),
           ),
-          Container(
-            width: 1,
-            height: 60,
-            color: AppColors.whiteColor,
-          ),
-          const Gap(4),
+          Container(width: 1, height: 50, color: AppColors.whiteColor),
+          Gap(10),
           RotatedBox(
             quarterTurns: 3,
             child: Text(
-              taskModel.isCompleted == true ? 'Completed' : 'TODO',
-              style: TextStyles.getSmallTextStyle(
-                  fontWeight: FontWeight.w600, color: AppColors.whiteColor),
+              taskModel.isCompleted == true ? 'COMPLETED' : 'TODO',
+              style: TextStyles.getBodyTextStyle(
+                context,
+                fontWeight: FontWeight.w600,
+                color: AppColors.whiteColor,
+              ),
             ),
-          )
+          ),
         ],
       ),
     );

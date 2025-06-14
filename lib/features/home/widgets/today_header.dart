@@ -20,16 +20,16 @@ class TodayHeader extends StatelessWidget {
           children: [
             Text(
               DateFormat.yMMMd().format(DateTime.now()),
-              style: TextStyles.getBodyTextStyle(fontWeight: FontWeight.bold),
+              style: TextStyles.getBodyTextStyle(context,fontWeight: FontWeight.bold),
             ),
             Text('Today',
                 style:
-                    TextStyles.getBodyTextStyle(fontWeight: FontWeight.bold)),
+                    TextStyles.getBodyTextStyle(context,fontWeight: FontWeight.bold)),
           ],
         ),
         MainButton(
-            width: 137,
-            title: '+ Add Task',
+            width: 140,
+            title: '+Add Task',
             onPressed: () {
               context.pushTo(const AddTaskScreen());
             })
