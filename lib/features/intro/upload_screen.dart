@@ -41,7 +41,7 @@ class _UploadScreenState extends State<UploadScreen> {
                     context, 'Please select an image and enter your name');
               }
             },
-            child: const Text('Done'),
+            child: const Text('Done' , style: TextStyle(color: Colors.white),),
           ),
         ],
       ),
@@ -87,12 +87,10 @@ class _UploadScreenState extends State<UploadScreen> {
                 ),
               ),
               const Gap(20),
-              const Divider(),
-              const Gap(20),
               TextFormField(
                 controller: nameController,
                 decoration: const InputDecoration(
-                  hintText: 'Enter your name',
+                  hintText: 'Enter Your Name',
                 ),
               )
             ],

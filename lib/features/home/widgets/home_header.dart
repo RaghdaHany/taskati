@@ -21,7 +21,7 @@ class HomeHeader extends StatelessWidget {
               'Hello, ${LocalStorage.getData(LocalStorage.name)}',
               style: TextStyles.getTitleTextStyle(),
             ),
-            Text('Have a nice day', style: TextStyles.getBodyTextStyle(context,)),
+            Text('Have a nice day', style: TextStyles.getBodyTextStyle(context)),
           ],
         ),
         CircleAvatar(

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:taskati/core/constants/app_fonts.dart';
 import 'package:taskati/core/model/task_model.dart';
 import 'package:taskati/core/services/local_storage.dart';
-import 'package:taskati/core/utils/colors.dart';
-import 'package:taskati/core/utils/text_styles.dart';
+import 'package:taskati/core/utils/themes.dart';
 import 'package:taskati/features/intro/splash_screen.dart';
 
 Future<void> main() async {
@@ -24,35 +22,23 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          fontFamily: AppFonts.poppins,
-          appBarTheme: const AppBarTheme(
-              centerTitle: true,
-              foregroundColor: AppColors.primaryColor,
-              titleTextStyle: TextStyle(
-                fontSize: 18,
-                color: AppColors.primaryColor,
-                fontWeight: FontWeight.w600,
-                fontFamily: AppFonts.poppins,
-              )),
-          inputDecorationTheme: InputDecorationTheme(
-            hintStyle: TextStyles.getBodyTextStyle(context,),
-            enabledBorder: OutlineInputBorder(
-                borderSide: const BorderSide(color: AppColors.primaryColor),
-                borderRadius: BorderRadius.circular(10)),
-            focusedBorder: OutlineInputBorder(
-                borderSide: const BorderSide(color: AppColors.primaryColor),
-                borderRadius: BorderRadius.circular(10)),
-            errorBorder: OutlineInputBorder(
-                borderSide: const BorderSide(color: AppColors.redColor),
-                borderRadius: BorderRadius.circular(10)),
-            focusedErrorBorder: OutlineInputBorder(
-                borderSide: const BorderSide(color: AppColors.redColor),
-                borderRadius: BorderRadius.circular(10)),
-          )),
-      home: const SplashScreen(),
+    return ValueListenableBuilder(
+      valueListenable: LocalStorage.userBox.listenable(),
+      builder: (context, value, child) {
+        bool isDarkMode =
+            LocalStorage.getData(LocalStorage.isDarkMode) ?? false;
+        return MaterialApp(
+          // localizationsDelegates: context.localizationDelegates,
+          // supportedLocales: context.supportedLocales,
+          // locale: context.locale,
+          darkTheme: AppThemes.darkTheme,
+          themeMode: ThemeMode.dark,
+          theme: AppThemes.lightTheme,
+
+          debugShowCheckedModeBanner: false,
+          home: SplashScreen(),
+        );
+      },
     );
   }
 }

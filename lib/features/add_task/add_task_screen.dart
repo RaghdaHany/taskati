@@ -249,8 +249,9 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                   backgroundColor: index == 0
                       ? AppColors.primaryColor
                       : index == 1
-                          ? AppColors.orangeColor
-                          : AppColors.redColor,
+                          ? 
+                          AppColors.redColor
+                          : AppColors.orangeColor,
                   child: index == selectedColor
                       ? const Icon(
                           Icons.check,
